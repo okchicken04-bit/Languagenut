@@ -1,11 +1,23 @@
 {
     "name": "Python with Browser Automation",
-    "image": "mcr.microsoft.com/devcontainers/python:0-3.12", // Or adjust to your Python version
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.12", // You can try 'latest' or '0-3.11' if 3.12 has issues
     "features": {
         "ghcr.io/devcontainers/features/apt-get:1": {
-            "packages": "firefox-esr" // Explicitly install Firefox ESR
+            "packages": "firefox-esr" // This will explicitly install Firefox ESR via apt
         }
     },
     "postCreateCommand": "pip install --user selenium webdriver-manager",
-    "postAttachCommand": "source venv/bin/activate" // Activate venv on terminal start
+    "postAttachCommand": "source venv/bin/activate", // Activates venv when terminal opens
+    "customizations": {
+        "vscode": {
+            "settings": {
+                "python.defaultInterpreterPath": "/usr/local/python/3.12/bin/python",
+                "python.formatting.provider": "none" // Turn off default formatter
+            },
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance"
+            ]
+        }
+    }
 }
