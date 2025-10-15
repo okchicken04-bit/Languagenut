@@ -1,0 +1,11 @@
+{
+    "name": "Python with Browser Automation",
+    "image": "mcr.microsoft.com/devcontainers/python:0-3.12", // Or adjust to your Python version
+    "features": {
+        "ghcr.io/devcontainers/features/apt-get:1": {
+            "packages": "firefox-esr" // Explicitly install Firefox ESR
+        }
+    },
+    "postCreateCommand": "pip install --user selenium webdriver-manager",
+    "postAttachCommand": "source venv/bin/activate" // Activate venv on terminal start
+}
